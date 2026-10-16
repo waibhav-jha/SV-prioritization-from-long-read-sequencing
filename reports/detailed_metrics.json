@@ -1,0 +1,94 @@
+{
+  "clinvar": {
+    "total_lines": 9036351,
+    "total_sv_ge_50bp": 101891,
+    "grch38_count": 24422,
+    "grch37_count": 77469,
+    "label_counts": {
+      "Uncertain Significance (VUS)": 40741,
+      "Pathogenic": 36998,
+      "Likely Pathogenic": 8127,
+      "Likely Benign": 6842,
+      "Benign": 6152,
+      "Other / Not Provided": 2073,
+      "Conflicting Interpretations": 494,
+      "Benign/Likely Benign": 312,
+      "Pathogenic/Likely Pathogenic": 152
+    },
+    "type_counts": {
+      "Deletion": 30532,
+      "copy number gain": 29737,
+      "copy number loss": 28697,
+      "Duplication": 11692,
+      "Indel": 970,
+      "Complex": 82,
+      "Inversion": 65,
+      "Microsatellite": 51,
+      "Translocation": 49,
+      "Insertion": 8,
+      "Variation": 6,
+      "fusion": 1,
+      "Tandem duplication": 1
+    },
+    "pathogenic_count": 45277,
+    "benign_count": 13306,
+    "vus_count": 40741,
+    "conflict_count": 494,
+    "median_length_pathogenic": 51100.0,
+    "median_length_benign": 153420.0,
+    "iqr_pathogenic": [
+      2937.0,
+      1584032.0
+    ],
+    "iqr_benign": [
+      56203.5,
+      401207.25
+    ],
+    "mwu_pvalue": 3.0389408099031574e-77,
+    "mwu_stat": 269323954.0,
+    "chi2_pvalue": 0.0,
+    "chi2_stat": 15769.58305089769
+  },
+  "gnomad": {
+    "total_sv": 387477,
+    "rare_count_lt_001": 349202,
+    "common_count_ge_001": 38275,
+    "singleton_count": 152640,
+    "type_counts": {
+      "DEL": 169635,
+      "INS:ME:ALU": 60475,
+      "BND": 52604,
+      "DUP": 49571,
+      "INS": 31443,
+      "INS:ME:LINE1": 10018,
+      "INS:ME:SVA": 6417,
+      "CPX": 4778,
+      "CN=0": 1108,
+      "INV": 748,
+      "INS:ME": 672,
+      "CTX": 8
+    },
+    "af_percentiles": {
+      "p25": 4.600000102072954e-05,
+      "p50": 9.200000204145908e-05,
+      "p75": 0.0005070000188425,
+      "p95": 0.06431739926338206,
+      "p99": 0.45956544280052036
+    }
+  },
+  "dbvar": {
+    "total_sv": 79808,
+    "file_counts": {
+      "VUS": 36651,
+      "Pathogenic": 33704,
+      "Benign": 9453
+    },
+    "shared_ids_with_clinvar": 0
+  },
+  "overlap_simulation": {
+    "sample_size": 5000,
+    "reciprocal_70_pct": 14.42,
+    "reciprocal_50_pct": 25.98,
+    "window_100bp_pct": 0.38
+  }
+}

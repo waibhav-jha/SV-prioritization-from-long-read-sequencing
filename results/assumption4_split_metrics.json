@@ -1,0 +1,10 @@
+{
+  "is_strictly_disjoint": true,
+  "train_count": 25158,
+  "val_count": 8546,
+  "test_count": 8854,
+  "train_pos_rate": 0.7845615708720884,
+  "val_pos_rate": 0.8661362040720805,
+  "test_pos_rate": 0.827874407047662,
+  "vus_count": 34466
+}

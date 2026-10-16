@@ -1,0 +1,13 @@
+{
+  "total_vus_evaluated": 34466,
+  "tier_breakdown": {
+    "Tier 4: High-Confidence Likely Benign Polymorphism": 15927,
+    "Tier 3: Low-Risk Likely Tolerated": 7819,
+    "Tier 2: Moderate-Risk Potential Deleterious": 6883,
+    "Tier 1: High-Confidence Pathogenic Candidate": 3837
+  },
+  "mean_vus_score": 0.34563788771629333,
+  "median_vus_score": 0.24816609919071198,
+  "high_priority_candidates_count": 3837,
+  "likely_benign_candidates_count": 15927
+}

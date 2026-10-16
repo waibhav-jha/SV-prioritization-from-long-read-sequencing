@@ -1,0 +1,42 @@
+{
+  "Logistic Regression": {
+    "PR-AUC": 0.9544,
+    "ROC-AUC": 0.8411,
+    "F1-Score (Optimal)": 0.9254,
+    "Optimal_Threshold": 0.2449,
+    "Balanced_Accuracy": 0.7264,
+    "Brier_Score": 0.1755,
+    "Precision@Top-5%": 0.9977,
+    "Precision@Top-10%": 0.9876
+  },
+  "Random Forest": {
+    "PR-AUC": 0.9682,
+    "ROC-AUC": 0.8807,
+    "F1-Score (Optimal)": 0.9307,
+    "Optimal_Threshold": 0.0657,
+    "Balanced_Accuracy": 0.6917,
+    "Brier_Score": 0.157,
+    "Precision@Top-5%": 0.991,
+    "Precision@Top-10%": 0.9898
+  },
+  "LightGBM": {
+    "PR-AUC": 0.9698,
+    "ROC-AUC": 0.8877,
+    "F1-Score (Optimal)": 0.9347,
+    "Optimal_Threshold": 0.0545,
+    "Balanced_Accuracy": 0.7295,
+    "Brier_Score": 0.1638,
+    "Precision@Top-5%": 0.991,
+    "Precision@Top-10%": 0.991
+  },
+  "XGBoost": {
+    "PR-AUC": 0.9696,
+    "ROC-AUC": 0.8883,
+    "F1-Score (Optimal)": 0.9364,
+    "Optimal_Threshold": 0.0544,
+    "Balanced_Accuracy": 0.7306,
+    "Brier_Score": 0.1649,
+    "Precision@Top-5%": 0.9887,
+    "Precision@Top-10%": 0.9887
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "logistic_regression": {
+    "pr_auc": 0.945413981941615,
+    "roc_auc": 0.7819931014675678
+  },
+  "random_forest": {
+    "pr_auc": 0.9754315704148163,
+    "roc_auc": 0.8788046086580268
+  },
+  "lightgbm": {
+    "pr_auc": 0.9772649301913711,
+    "roc_auc": 0.8838959017880256
+  },
+  "xgboost": {
+    "pr_auc": 0.9774679615908405,
+    "roc_auc": 0.8845689739873744
+  },
+  "winning_validation_model": "XGBoost"
+}

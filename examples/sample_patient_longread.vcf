@@ -1,0 +1,24 @@
+##fileformat=VCFv4.2
+##fileDate=20260815
+##source=Sniffles2_v2.2
+##reference=GRCh38
+##INFO=<ID=PRECISE,Number=0,Type=Flag,Description="Precise structural variation">
+##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise structural variation">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variation">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Length of structural variation">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of structural variation">
+##INFO=<ID=SUPPORT,Number=1,Type=Integer,Description="Number of supporting reads">
+##INFO=<ID=STRANDS,Number=1,Type=String,Description="Strand orientations of reads">
+##INFO=<ID=COVERAGE,Number=1,Type=Integer,Description="Local sequencing read depth">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=DR,Number=1,Type=Integer,Description="Reference read support">
+##FORMAT=<ID=DV,Number=1,Type=Integer,Description="Variant read support">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PATIENT_HG002
+X	31500000	SNF2.DEL.DMD_EX45_50	N	<DEL>	60	PASS	PRECISE;SVTYPE=DEL;END=32000000;SVLEN=-500000;SUPPORT=28;COVERAGE=32;STRANDS=+-	GT:GQ:DR:DV	0/1:60:4:28
+22	18900000	SNF2.DEL.22Q11_DIGEORGE	N	<DEL>	60	PASS	PRECISE;SVTYPE=DEL;END=21400000;SVLEN=-2500000;SUPPORT=26;COVERAGE=30;STRANDS=+-	GT:GQ:DR:DV	0/1:60:4:26
+X	154000000	SNF2.DUP.MECP2_LOCUS	N	<DUP>	60	PASS	PRECISE;SVTYPE=DUP;END=154800000;SVLEN=800000;SUPPORT=24;COVERAGE=30;STRANDS=+-	GT:GQ:DR:DV	0/1:60:6:24
+1	50940	SNF2.DEL.OR4F5_POLY	N	<DEL>	60	PASS	PRECISE;SVTYPE=DEL;END=51053;SVLEN=-113;SUPPORT=18;COVERAGE=30;STRANDS=+-	GT:GQ:DR:DV	0/1:60:12:18
+1	104100000	SNF2.DUP.AMY1A_CLUSTER	N	<DUP>	60	PASS	PRECISE;SVTYPE=DUP;END=104250000;SVLEN=150000;SUPPORT=22;COVERAGE=30;STRANDS=+-	GT:GQ:DR:DV	0/1:60:8:22
+7	120000000	SNF2.INV.INTERGENIC_VUS	N	<INV>	60	PASS	PRECISE;SVTYPE=INV;END=120050000;SVLEN=50000;SUPPORT=15;COVERAGE=28;STRANDS=++	GT:GQ:DR:DV	0/1:60:13:15
+3	45000000	SNF2.INS.INTRONIC_TOL	N	<INS>	60	PASS	PRECISE;SVTYPE=INS;END=45000000;SVLEN=120;SUPPORT=14;COVERAGE=29;STRANDS=+-	GT:GQ:DR:DV	0/1:60:15:14

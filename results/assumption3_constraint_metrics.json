@@ -1,0 +1,6 @@
+{
+  "max_constraint_mi": 0.107,
+  "mean_constraint_mi": 0.1288,
+  "cumulative_impact_mi": 0.1093,
+  "winning_formulation": "Mean Constraint Proxy (0.1288 MI)"
+}

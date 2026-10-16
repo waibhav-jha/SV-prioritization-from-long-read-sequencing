@@ -1,0 +1,34 @@
+{
+  "overlap_30pct": {
+    "threshold": 0.3,
+    "overall_match_rate_pct": 26.64,
+    "pathogenic_median_af": 0.00010299999848939375,
+    "benign_median_af": 0.0001380000030621,
+    "pathogenic_mean_af": 0.0006957324434207576,
+    "benign_mean_af": 0.015478794417739875
+  },
+  "overlap_50pct": {
+    "threshold": 0.5,
+    "overall_match_rate_pct": 16.38,
+    "pathogenic_median_af": 0.0001380000030621,
+    "benign_median_af": 0.0001380000030621,
+    "pathogenic_mean_af": 0.0008511766907854878,
+    "benign_mean_af": 0.0109153441063433
+  },
+  "overlap_70pct": {
+    "threshold": 0.7,
+    "overall_match_rate_pct": 8.88,
+    "pathogenic_median_af": 0.0001380000030621,
+    "benign_median_af": 0.0001380000030621,
+    "pathogenic_mean_af": 0.001184175185885296,
+    "benign_mean_af": 0.007057846831996427
+  },
+  "overlap_90pct": {
+    "threshold": 0.9,
+    "overall_match_rate_pct": 3.18,
+    "pathogenic_median_af": 0.0001380000030621,
+    "benign_median_af": 9.200000204145908e-05,
+    "pathogenic_mean_af": 0.0001744418609738107,
+    "benign_mean_af": 0.005879521947898166
+  }
+}

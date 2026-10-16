@@ -1,0 +1,22 @@
+{
+  "raw_sv_count": 101891,
+  "native_grch38_count": 24422,
+  "grch37_only_count": 55598,
+  "final_harmonized_unique_svs": 78844,
+  "retention_rate_pct": 77.38,
+  "class_breakdown": {
+    "VUS": 34466,
+    "Pathogenic": 28182,
+    "Likely Pathogenic": 6288,
+    "Likely Benign": 4741,
+    "Benign": 3347,
+    "Other": 1260,
+    "Conflicting": 289,
+    "Benign/Likely Benign": 191,
+    "Pathogenic/Likely Pathogenic": 80
+  },
+  "assembly_breakdown": {
+    "GRCh37": 54868,
+    "GRCh38": 23976
+  }
+}

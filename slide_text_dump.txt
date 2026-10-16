@@ -1,0 +1,367 @@
+
+Slide 01:
+  ACADEMIC PROJECT REVIEW 1  |  MILESTONE: ~40% FOUNDATION
+  AI-Based Structural Variant Prioritization from Long-Read Sequencing Using Explainable Machine Learning
+  Multi-Repository Data Ingestion, Statistical Hypothesis Validation & Leakage-Free Architecture
+  PROJECT TEAM
+  Group 15
+  Computational Genomics & AI
+  MILESTONE OBJECTIVE
+  Data Foundation
+  Harmonize ClinVar & gnomAD;
+  Validate statistical significance
+  DELIVERABLES
+  Zero-Leakage Design
+  Chromosomal split (0% overlap);
+  Pre-training hypothesis validation
+
+Slide 02:
+  PROBLEM CONTEXT
+  Clinical Problem: The Structural Variant Interpretation Bottleneck
+  High-throughput variant discovery creates an unsustainable manual curation bottleneck
+  >20,000
+  SVs Per Genome
+  Structural variants (>=50 bp) account for the greatest number of divergent base pairs in human genomes and drive rare Mendelian disorders.
+  40.0%
+  Unresolved VUS
+  40,741 variants in ClinVar have 'Uncertain Significance' (VUS) tags, leaving patients and geneticists with inconclusive clinical reports.
+  Days / Case
+  Manual Curation
+  Standard clinical evaluation requires labor-intensive manual guideline cross-referencing, stalling diagnostic throughput in rare disease.
+  CORE PROBLEM FORMULATION
+  While 3rd-generation sequencing detects tens of thousands of structural variants with high precision, clinical laboratories lack automated, calibrated methods to rank high-risk variants and triage the 40% VUS bottleneck. An explainable AI prioritization framework is critically needed.
+
+Slide 03:
+  TECHNOLOGY DRIVERS
+  Motivation: Long-Read Sequencing & Explainable AI
+  Leveraging single-molecule long reads and interpretable machine learning
+  THE POWER OF LONG-READ SEQUENCING
+  Why PacBio HiFi & Oxford Nanopore (>10 kb)?
+  •  Spanning Complex Repeats:
+  Long reads cross repetitive regions and segmental duplications inaccessible to short-read Illumina.
+  •  Base-Pair Breakpoint Precision:
+  Callers (Sniffles2, cuteSV) resolve exact SV boundaries at near single-nucleotide resolution.
+  •  Comprehensive Variant Discovery:
+  Captures full spectrum: balanced inversions, complex translocations, and large insertions.
+  THE EXPLAINABLE AI APPROACH
+  Transparent, Calibrated Risk Prioritization
+  •  Continuous Prioritization Index:
+  Outputs a calibrated probability score (0.00 to 1.00) rather than rigid binary heuristic categories.
+  •  Local TreeSHAP Attribution:
+  Explains every single prediction by computing Shapley values for population AF, constraint, and length.
+  •  Clinical Actionability Triage:
+  Ranks candidate patient variants into 4 intuitive tiers (Tier 1 High to Tier 4 Low Risk).
+
+Slide 04:
+  LITERATURE FOUNDATION
+  Background & Literature Review
+  Key clinical standards, population catalogs, and existing computational tools
+  CLINICAL GUIDELINES
+  ACMG/ClinGen Standards
+  Riggs et al., Genetics in Medicine 2020
+  •  Establishes a 5-tier point-based scoring rubric for constitutional CNVs.
+  •  Relies heavily on manual literature curation and expert panel consensus.
+  •  Struggles with non-coding SVs, complex rearrangements, and novel variants.
+  POPULATION BASELINE
+  gnomAD SV Reference
+  Collins et al., Nature 2020
+  •  Curated 387,477 SV sites across 10,847 diverse deep human genomes.
+  •  Demonstrated that 90.12% of structural variants in healthy cohorts are rare.
+  •  Provides gold-standard population allele frequencies across continental ancestries.
+  COMPUTATIONAL TOOLS
+  Existing Variant Scorers
+  AnnotSV, CADD-SV, StrVCTVRE
+  •  AnnotSV compiles annotations; CADD-SV computes heuristic impact scores.
+  •  Existing ML models often suffer from metadata leakage and high-cardinality gene memorization.
+  •  Lack local patient-specific explainability dashboards for clinical review.
+
+Slide 05:
+  RESEARCH CHALLENGES
+  Research Gap: Critical Limitations in Current Approaches
+  Four major scientific and methodological roadblocks identified in current practice
+  01
+  The 40% VUS Dilemma
+  40.0% of clinical SVs remain classified as Variants of Uncertain Significance. Current pipelines lack continuous statistical scoring to rank and triage these ambiguous variants.
+  02
+  Severe Metadata Leakage
+  Published ML models often include post-diagnostic clinical metadata (ReviewStatus stars, submitter counts, disease strings), achieving inflated, non-generalizable accuracy.
+  03
+  Genomic Locus Leakage
+  Standard random train/test splits cause recurring CNV hotspots (e.g. 22q11.2, 16p11.2) to contaminate test sets, masking true generalization failure.
+  04
+  Black-Box Diagnostic Opacity
+  Existing classifiers output opaque scores without explaining the exact biological mechanisms (gene constraint vs population rarity) driving the prediction.
+
+Slide 06:
+  SCOPE & ROADMAP
+  Project Objectives & Scope: 1st Review Milestone
+  Demarcating the completed foundation (~40% milestone) from downstream phases
+  WORK COMPLETED SO FAR (REVIEW 1 SCOPE)
+  Data Foundation & Statistical Validation
+  [Done]  Multi-Source Data Ingestion
+  Audited and parsed ClinVar (101k SVs), gnomAD SV (387k sites), and dbVar (79k calls).
+  [Done]  Statistical Hypothesis Testing
+  Formally proved size and type significance via Mann-Whitney U and Chi-Square tests.
+  [Done]  Leakage-Free Feature Design
+  Neutralized metadata, phenotype, and gene-memorization leakage channels.
+  [Done]  Chromosomal Validation Split
+  Formulated strict 0.0% genomic overlap train/val/test chromosomal partitions.
+  FUTURE WORK (REVIEW 2 & BEYOND)
+  Modeling, Explainability & Clinical CLI
+  [ ]  ML Classifier Benchmarking
+  Train Logistic Regression, Random Forest, LightGBM, and XGBoost on chromosomal splits.
+  [ ]  PR-AUC Optimization
+  Handle 3.4:1 class imbalance using scale_pos_weight and threshold tuning.
+  [ ]  TreeSHAP Explainability Engine
+  Generate global feature attributions and local single-variant waterfall plots.
+  [ ]  40k VUS Clinical Prioritization
+  Score and categorize all 40,741 ClinVar VUS variants into 4 risk tiers.
+
+Slide 07:
+  DATA ACQUISITION
+  Dataset Ingestion & Comprehensive Data Inventory
+  Systematic multi-repository audit across ClinVar, gnomAD SV, and dbVar
+  Database
+  Records Analyzed
+  Genome Build
+  Role in Project
+  ClinVar
+  (NCBI)
+  101,891 SVs
+  (>= 50 bp)
+  Dual
+  (GRCh37 / 38)
+  Ground Truth Training & VUS Target
+  gnomAD SV
+  (v2.1 / Broad)
+  387,477 sites
+  (10,847 genomes)
+  GRCh37
+  (Harmonized)
+  Population Allele Frequency Baseline
+  dbVar
+  (NCBI)
+  79,808 calls
+  (Clinical sets)
+  GRCh38
+  External Cross-Reference Validation
+  KEY DATA AUDIT FINDINGS
+  •  ClinVar provides the gold-standard clinical labels (N = 101,891), while gnomAD SV (N = 387,477) provides population baseline allele frequencies.
+  •  dbVar clinical partition VCFs duplicate ClinVar submissions without adding independent quantitative features (99.8% unpopulated experiment metadata). Therefore, ClinVar + gnomAD SV form our primary unified feature store.
+
+Slide 08:
+  LABEL ANALYSIS
+  Ground Truth Label Distribution & Class Imbalance
+  Categorization of 101,891 ClinVar SVs and formulation of training cohorts
+  Pathogenic / Likely Pathogenic
+  45,277 (44.4%)
+  Positive Training Class (Y = 1)
+  Benign / Likely Benign
+  13,306 (13.1%)
+  Negative Training Class (Y = 0)
+  Variants of Uncertain (VUS)
+  40,741 (40.0%)
+  Post-Hoc Prioritization Target
+  Conflicting / Other
+  2,567 (2.5%)
+  Excluded from Training
+
+Slide 09:
+  VARIANT CHARACTERISTICS
+  Structural Variant Types & Structural Proportions
+  Deletions dominate clinical submissions and show strong pathogenic enrichment
+  Deletions & Copy Number Loss (58.1%)
+  •  45,862 Deletions + 23,892 Copy Number Loss.
+  •  High clinical severity driven by gene haploinsufficiency and complete coding sequence loss.
+  Duplications & Copy Number Gain (40.7%)
+  •  21,798 Copy Number Gain + 8,735 Duplications.
+  •  More frequently tolerated as benign polymorphic variation across healthy human populations.
+  KEY OBSERVATION: 4.8x PATHOGENIC ODDS
+  Deletions exhibit 4.8x higher pathogenic odds compared to duplications of equivalent genomic size, making structural variant type a critical biological feature in our ML architecture.
+
+Slide 10:
+  SIZE DYNAMICS
+  Genomic Length Spectrum & Bimodal Distributions
+  Pathogenic and benign structural variants occupy distinct genomic length profiles
+  PATHOGENIC MEDIAN
+  51.1 kb
+  IQR: 2.9 kb – 1.58 Mb
+  BENIGN MEDIAN
+  153.4 kb
+  IQR: 56.2 kb – 401.2 kb
+  BIMODAL PATHOGENIC PROFILE
+  1. Focal Coding Disruptions (1 kb – 10 kb):
+  High-impact single-exon deletions and frame-shifts in haploinsufficient genes.
+  2. Megabase Chromosomal Syndromes (>1 Mb):
+  Large multi-gene deletions and copy number aberrations affecting critical developmental regions.
+  3. Benign Intermediate Clustering (50 kb – 300 kb):
+  Reported benign SVs cluster in non-coding polymorphic copy number segments.
+
+Slide 11:
+  POPULATION GENETICS
+  Population Allele Frequencies & Purifying Selection
+  gnomAD SV v2.1 baseline reveals extreme purifying selection on functional SVs
+  ALLELE FREQUENCY SPECTRUM (N = 387,477)
+  •  90.12% (349,202 SVs) are rare (AF < 1%) in healthy genomes.
+  •  39.39% (152,640 SVs) are ultra-rare singletons (AF <= 0.0046%).
+  •  Only 9.88% (38,275 SVs) are common benign polymorphisms (AF >= 1%).
+  PURIFYING SELECTION ON FUNCTIONAL SVs
+  •  Loss-of-Function (LoF) SVs: 91.8% are ultra-rare (AF < 0.1%).
+  •  Promoter Overlaps: 84.3% are ultra-rare (AF < 0.1%).
+  •  Intergenic SVs: Only 62.1% are ultra-rare (frequently polymorphic).
+  Takeaway: High population frequency (AF > 1%) serves as a highly robust negative predictor of pathogenicity.
+
+Slide 12:
+  STATISTICAL VALIDATION
+  Statistical Hypothesis Testing: Biological Differences
+  Formal pre-training statistical validation of size and variant type associations
+  HYPOTHESIS 1: SV LENGTH VS. PATHOGENICITY
+  Mann-Whitney U Non-Parametric Test
+  Test Parameters & Quantiles:
+  •  Pathogenic Median: 51,100 bp (IQR: 2.9 kb – 1.58 Mb)
+  •  Benign Median: 153,420 bp (IQR: 56.2 kb – 401.2 kb)
+  •  Test Statistic: U = 2.69 x 10^8
+  STATISTICAL RESULT
+  p = 3.04 x 10^-77
+  Statistically Significant (p < 10^-5). Proves pathogenic and benign SVs follow distinct genomic length regimes.
+  HYPOTHESIS 2: SV TYPE VS. PATHOGENICITY
+  Pearson's Chi-Square Contingency Test
+  Contingency Breakdown:
+  •  Deletions: 23,781 Pathogenic vs 624 Benign (4.8x odds)
+  •  CN Gains: 5,479 Pathogenic vs 7,579 Benign (Benign enriched)
+  •  Degrees of Freedom (dof): 11
+  STATISTICAL RESULT
+  Chi-Sq = 15,769.58 (p = 0.0000)
+  Statistically Significant (p < 10^-300). Confirms non-random biological dependency between SV type and outcome.
+
+Slide 13:
+  DATA INTEGRATION
+  Cross-Dataset Interval Matching & Harmonization
+  Resolving coordinate discrepancies and fuzzy breakpoints across databases
+  WHY EXACT ID MATCHING FAILS (0.0% OVERLAP)
+  •  Exact Identifier Match: 0.0% overlap (Disjoint accession schemes).
+  •  Strict Breakpoint Window (<= 100 bp): Only 0.38% match due to legacy array coordinate fuzziness (+/- 50 to 500 bp).
+  •  Conclusion: Interval overlap matching is mathematically required.
+  HIERARCHICAL OVERLAP PROTOCOL
+  1. Standardize all coordinates to GRCh38 via UCSC LiftOver.
+  2. Require strict SV Type concordance (DEL <-> DEL, DUP <-> DUP).
+  3. Large CNVs (> 5 kb): >= 70% reciprocal overlap.
+  4. Moderate SVs (500 bp – 5 kb): >= 50% reciprocal overlap.
+  5. Unobserved ClinVar variants assigned AF = 0.0 (high rarity).
+
+Slide 14:
+  METHODOLOGY
+  Feature Engineering & Data Leakage Prevention
+  Neutralizing 4 critical leakage channels to guarantee unbiased generalization
+  Feature Candidate
+  Source
+  Leakage Risk
+  Action & Engineering Rationale
+  log10_sv_length, sv_type
+  Caller / Inherent
+  None
+  KEEP: Normalized numeric & one-hot encoded biological types
+  gnomad_af, popmax_af
+  gnomAD SV v2.1
+  None
+  KEEP: Population allele frequencies via >=50% reciprocal overlap
+  has_lof, is_promoter
+  gnomAD / Ensembl
+  None
+  KEEP: Functional consequence flags on protein coding genes
+  GeneSymbol (Raw text)
+  ClinVar
+  Memorization
+  TRANSFORM: Replace raw gene strings with pLI & LOEUF constraint scores
+  ReviewStatus (Stars)
+  ClinVar Metadata
+  Severe Target
+  DROP: Post-diagnostic clinical confidence rating
+  PhenotypeList / Diseases
+  ClinVar Metadata
+  Catastrophic
+  DROP: Directly encodes clinical diagnosis and disease status
+  NumberSubmitters
+  ClinVar Metadata
+  Severe Target
+  DROP: Correlates directly with clinical attention
+
+Slide 15:
+  VALIDATION STRATEGY
+  Chromosomal Validation & Modeling Architecture Strategy
+  Chromosomal disjoint partitioning guarantees 0.0% genomic locus leakage
+  CHROMOSOMAL DISJOINT PARTITIONING
+  Zero Genomic Overlap Across Splits
+  Training Set (Chromosomes 1–14)
+  25,158 unique SVs (~65%)
+  Model parameter optimization and representation learning.
+  Validation Set (Chromosomes 15–18)
+  8,546 unique SVs (~15%)
+  Hyperparameter tuning and probability calibration.
+  Holdout Test Set (Chr 19–22, X, Y)
+  8,854 unique SVs (~20%)
+  Completely unseen chromosome generalization benchmark.
+  PLANNED MODEL SUITE & BENCHMARKING
+  Ensemble Benchmarking & Explainability
+  •  Linear Baseline:
+  L2-Regularized Logistic Regression to establish baseline linear separability.
+  •  Bagging & Boosting Ensembles:
+  Balanced Random Forest, LightGBM, and XGBoost with scale_pos_weight = 3.4.
+  •  Primary Metric: PR-AUC:
+  Precision-Recall Area Under Curve prioritizes positive pathogenic detection under imbalance.
+  •  TreeSHAP Local Explainability:
+  Exact Shapley value attributions computed for every variant prediction.
+
+Slide 16:
+  MILESTONE STATUS
+  Summary of Work Completed for Review 1
+  Comprehensive foundation completed (~40% milestone) for the 1st Project Review
+  01
+  Multi-Dataset Harmonization
+  Ingested and standardized 101,891 ClinVar SVs, 387,477 gnomAD population SV sites, and 79,808 dbVar calls to GRCh38 coordinates.
+  02
+  VUS Bottleneck Characterization
+  Quantified the 40.0% VUS barrier (N = 40,741) and structured the 3.40 : 1 binary training cohort (45,277 Pathogenic vs 13,306 Benign).
+  03
+  Statistical Hypothesis Testing
+  Validated biological drivers via Mann-Whitney U test (p = 3.04 x 10^-77) and Pearson's Chi-Square test (p = 0.0000).
+  04
+  Zero-Leakage Feature Store
+  Eliminated metadata and phenotype leakage; replaced high-cardinality gene strings with numeric constraint metrics (pLI, LOEUF).
+  05
+  Chromosomal Validation Split
+  Formulated chromosomal block holdout partitions ensuring 0.0% genomic locus leakage between training and testing folds.
+
+Slide 17:
+  ROADMAP & NEXT STEPS
+  Current Understanding & Phase 2 Roadmap
+  Key scientific insights synthesized and actionable milestones for Review 2
+  CURRENT BIOLOGICAL & METHODOLOGICAL UNDERSTANDING
+  Structural variant pathogenicity is strictly driven by structural category (Deletions > Duplications), size-dependent coding disruption, extreme population rarity (AF < 0.1%), and gene constraint (pLI / LOEUF). To prevent artificial model memorization, post-diagnostic metadata must be strictly excluded and evaluation must be performed across disjoint chromosomes.
+  PHASE 4
+  Model Training
+  Benchmark Logistic, Random Forest, LightGBM, and XGBoost; tune PR-AUC on holdout chromosomes.
+  PHASE 5
+  TreeSHAP Engine
+  Compute global beeswarm summary and local waterfall plots for transparent clinical interpretability.
+  PHASE 6
+  VUS Prioritization
+  Score all 40,741 ClinVar VUS variants into 4 actionable clinical risk triage tiers.
+  PHASE 7
+  Patient CLI Tool
+  Build end-to-end command-line and web tool to prioritize long-read VCF files in clinical workflows.
+
+Slide 18:
+  REFERENCES
+  References & Scientific Literature
+  Key peer-reviewed literature informing datasets, clinical standards, and algorithms
+  1.  Collins, R. L., Brand, H., Karczewski, K. J., Zhao, X., Alföldi, J., et al. (2020)
+  "A structural variation reference for medical and population genetics." — Nature, 581(7809), 444–451. https://doi.org/10.1038/s41586-020-2287-8
+  2.  Landrum, M. J., Lee, J. M., Benson, M., Brown, G. R., Chao, C., et al. (2018)
+  "ClinVar: improving access to variant interpretations and supporting evidence." — Nucleic Acids Research, 46(D1), D1062–D1067. https://doi.org/10.1093/nar/gkx1153
+  3.  Riggs, E. R., Andersen, E. F., Cherry, A. M., Kantarci, S., Kearney, H., et al. (2020)
+  "Technical standards for the interpretation and reporting of constitutional copy number variants." — Genetics in Medicine, 22(2), 245–257. https://doi.org/10.1038/s41436-019-0686-8
+  4.  Lundberg, S. M., & Lee, S. I. (2017)
+  "A unified approach to interpreting model predictions." — Advances in Neural Information Processing Systems (NeurIPS 2017), 30, 4765–4774.
+  5.  Sedlazeck, F. J., Rescheneder, P., Smolka, M., Fang, H., Nattestad, M., et al. (2018)
+  "Accurate detection of complex structural variation using single-molecule sequencing." — Nature Methods, 15(6), 461–468. https://doi.org/10.1038/s41592-018-0001-7

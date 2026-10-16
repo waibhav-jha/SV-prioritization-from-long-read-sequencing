@@ -1,0 +1,50 @@
+[
+  {
+    "Model Architecture": "Multimodal Sequence+Epigenetic Net",
+    "Modality": "Tabular + Seq + Epi",
+    "Accuracy (\u03c4=0.50)": "81.87%",
+    "Balanced Accuracy": "77.28%",
+    "F1-Score": "0.8850",
+    "ROC-AUC": "0.8663",
+    "PR-AUC": "0.9653",
+    "Sensitivity": "84.3%",
+    "Specificity": "70.3%",
+    "Brier Loss": "0.1306"
+  },
+  {
+    "Model Architecture": "Tabular ResNet (DL)",
+    "Modality": "Tabular Only",
+    "Accuracy (\u03c4=0.50)": "86.16%",
+    "Balanced Accuracy": "79.25%",
+    "F1-Score": "0.9149",
+    "ROC-AUC": "0.8892",
+    "PR-AUC": "0.9705",
+    "Sensitivity": "89.8%",
+    "Specificity": "68.7%",
+    "Brier Loss": "0.1010"
+  },
+  {
+    "Model Architecture": "XGBoost",
+    "Modality": "Tabular Only",
+    "Accuracy (\u03c4=0.50)": "75.40%",
+    "Balanced Accuracy": "79.40%",
+    "F1-Score": "0.8315",
+    "ROC-AUC": "0.8883",
+    "PR-AUC": "0.9696",
+    "Sensitivity": "73.3%",
+    "Specificity": "85.5%",
+    "Brier Loss": "0.1649"
+  },
+  {
+    "Model Architecture": "LightGBM",
+    "Modality": "Tabular Only",
+    "Accuracy (\u03c4=0.50)": "74.60%",
+    "Balanced Accuracy": "78.84%",
+    "F1-Score": "0.8251",
+    "ROC-AUC": "0.8877",
+    "PR-AUC": "0.9698",
+    "Sensitivity": "72.4%",
+    "Specificity": "85.3%",
+    "Brier Loss": "0.1638"
+  }
+]

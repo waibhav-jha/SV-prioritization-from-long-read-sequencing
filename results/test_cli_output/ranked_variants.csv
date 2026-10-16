@@ -1,0 +1,8 @@
+var_id,chrom,start,stop,length,raw_svtype,pathogenicity_score,priority_tier,clinical_recommendation,gnomad_af,gnomad_popmax_af,gene_count,gnomad_lof,support
+SNF2.DEL.22Q11_DIGEORGE,22,18900000,21400000,2500000,DEL,0.9398,Tier 1 (High-Confidence Pathogenic),Immediate clinical review; candidate for diagnostic confirmation,0.0001380000030621,0.0003150000120513,33,1,26
+SNF2.INV.INTERGENIC_VUS,7,120000000,120050000,50000,INV,0.5408,Tier 2 (Moderate-Risk / Uncertain),Secondary review; evaluate patient phenotypic match,0.0,0.0,1,0,15
+SNF2.INS.INTRONIC_TOL,3,45000000,45000001,120,INS,0.5186,Tier 2 (Moderate-Risk / Uncertain),Secondary review; evaluate patient phenotypic match,0.0,0.0,0,0,14
+SNF2.DEL.DMD_EX45_50,X,31500000,32000000,500000,DEL,0.1667,Tier 4 (Benign Polymorphism),Deprioritize; consistent with common population allele,0.0,0.0,7,0,28
+SNF2.DEL.OR4F5_POLY,1,50940,51053,113,DEL,0.1024,Tier 4 (Benign Polymorphism),Deprioritize; consistent with common population allele,0.0040520001202821,0.0084720002487301,0,0,18
+SNF2.DUP.MECP2_LOCUS,X,154000000,154800000,800000,DUP,0.0703,Tier 4 (Benign Polymorphism),Deprioritize; consistent with common population allele,0.0,0.0,11,0,24
+SNF2.DUP.AMY1A_CLUSTER,1,104100000,104250000,150000,DUP,0.0277,Tier 4 (Benign Polymorphism),Deprioritize; consistent with common population allele,0.0,0.0,2,0,22
